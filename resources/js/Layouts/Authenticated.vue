@@ -24,6 +24,9 @@
                                 <breeze-nav-link :href="route('employees.index')" :active="isActive('employee')">
                                     Employees
                                 </breeze-nav-link>
+                                <breeze-nav-link :href="route('posts.index')" :active="isActive('post')">
+                                    Posts
+                                </breeze-nav-link>
                             </div>
                         </div>
 
@@ -78,6 +81,10 @@
                         </breeze-responsive-nav-link>
                         <breeze-responsive-nav-link :href="route('employees.index')" :active="isActive('employee')">
                             Employees
+                        </breeze-responsive-nav-link>
+
+                        <breeze-responsive-nav-link :href="route('posts.index')" :active="isActive('post')">
+                            Posts
                         </breeze-responsive-nav-link>
                     </div>
 

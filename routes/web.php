@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
@@ -34,11 +35,19 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function() {
 
+    Route::resource('posts', PostController::class);
+
+
     Route::resource('departments', DepartmentController::class);
     Route::resource('employees', EmployeeController::class);
     Route::get('edit-profile', [UserController::class, 'edit'])->name('edit-profile');
     Route::put('update-profile', [UserController::class, 'update'])->name('update-profile');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
+
+//Route::get('/Post', function(){
+//
+//   return Inertia::render('Post/Index');
+//});
 
 require __DIR__.'/auth.php';

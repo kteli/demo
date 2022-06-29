@@ -6,18 +6,22 @@ use App\Http\Requests\UserRequest;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 use Intervention\Image\Facades\Image;
+use DataTables;
+
 
 class UserController extends Controller
 {
     //
-    public function edit() 
+
+
+    public function edit()
     {
         return Inertia::render('Users/Edit', [
             'user' => auth()->user()
         ]);
     }
 
-    public function update(UserRequest $request) 
+    public function update(UserRequest $request)
     {
         auth()->user()->update($request->all());
         if( $request->hasFile('image')) {
